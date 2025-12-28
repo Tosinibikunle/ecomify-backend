@@ -47,7 +47,7 @@ APPS = [
     "apps.users.apps.UsersConfig",
 ]
 
-DEPENDENCIES = ["rest_framework", "django_filters"]
+DEPENDENCIES = ["rest_framework", "django_filters", "drf_yasg"]
 
 INSTALLED_APPS = BASE_DEPENDENCIES + DEPENDENCIES + APPS
 
