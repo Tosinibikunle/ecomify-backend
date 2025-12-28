@@ -1,5 +1,6 @@
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth import authenticate
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework.exceptions import AuthenticationFailed
 
 
 class EmailTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -14,7 +15,7 @@ class EmailTokenObtainPairSerializer(TokenObtainPairSerializer):
         )
 
         if not user:
-            raise ValueError("invalid credentials")
+            raise AuthenticationFailed("invalid credentials")
 
         data = super().validate(attrs)
 
