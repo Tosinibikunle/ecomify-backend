@@ -11,8 +11,8 @@ class UserManager(BaseUserManager):
         user = self.model(email=email, **extra_fields)
         user.set_password(password)
         customer_group = Group.objects.get(name="customer")
-        user.groups.add(customer_group)
         user.save(using=self._db)
+        user.groups.add(customer_group)
         return user
 
     def create_superuser(self, email, password=None, **extra_fields):
